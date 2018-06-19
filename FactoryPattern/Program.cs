@@ -1,3 +1,4 @@
+using FactoryPattern.Factories;
 using FactoryPattern.Models;
 using System;
 using System.Collections.Generic;
@@ -13,35 +14,26 @@ namespace FactoryPattern
         {
             var color = "Red";
 
-            var camry = new ToyotaCamry();
-            camry.Color = color;
+            var camry = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.ToyotaCamry, color);
             camry.Drive();
 
-            var viper = new DodgeViper();
-            viper.Color = color;
+            var viper = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.DodgeViper, color);
             viper.Drive();
 
-            var superLow = new HarleyDavidsonSuperLow();
-            superLow.Color = color;
+            var superLow = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.HarleyDavidsonSuperLow, color);
             superLow.Drive();
 
-            Automobile randomAuto;
-            switch (new Random(DateTime.Now.Millisecond).Next(0, 2))
-            {
-                case 0:
-                    randomAuto = new ToyotaCamry();
-                    break;
-                case 1:
-                    randomAuto = new DodgeViper();
-                    break;
-                case 2:
-                    randomAuto = new HarleyDavidsonSuperLow();
-                    break;
-                default:
-                    throw new Exception("Unexpected random number.");
-            }
-            randomAuto.Color = color;
+            var randomAuto = AutomobileFactory.GetRandomAutomobileOfColor(color);
             randomAuto.Drive();
+
+            camry = AutomobileFactory.GetAutomobileOfColor<ToyotaCamry>(color);
+            camry.Drive();
+
+            viper = AutomobileFactory.GetAutomobileOfColor<DodgeViper>(color);
+            viper.Drive();
+
+            superLow = AutomobileFactory.GetAutomobileOfColor<HarleyDavidsonSuperLow>(color);
+            superLow.Drive();
         }
     }
 }
