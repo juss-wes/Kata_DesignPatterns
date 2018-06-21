@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RulesPattern.Kata
 {
+    [Obsolete]
     public static class ScoreCalculator
     {
         private const int _tripleOnes = 1000;
