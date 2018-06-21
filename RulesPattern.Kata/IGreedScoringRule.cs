@@ -9,6 +9,6 @@ namespace RulesPattern.Kata
     public interface IGreedScoringRule
     {
         int ScoreDice(IEnumerable<DiceRoll> UnevaluatedDiceRolls);
-        int EvaluationOrder { get; }
+        int RuleScore { get; }
     }
 }

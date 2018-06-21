@@ -15,8 +15,8 @@ namespace RulesPattern.Kata
             var scoreEngine = new ScoreEngine(new List<IGreedScoringRule>()
             {
                 //TODO: Add more rules here
-                new SingleScoringRule(1, 100, 1),
-                new SingleScoringRule(5, 50, 2)
+                new SingleScoringRule(1, 100),
+                new SingleScoringRule(5, 50)
             });
             while (!exit)
             {
