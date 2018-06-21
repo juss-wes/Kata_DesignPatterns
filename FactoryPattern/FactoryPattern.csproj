@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\AutomobileFactory.cs" />
+    <Compile Include="Interfaces\IAutomobile.cs" />
     <Compile Include="Models\Automobile.cs" />
     <Compile Include="Models\DodgeViper.cs" />
     <Compile Include="Models\HarleyDavidsonSuperLow.cs" />

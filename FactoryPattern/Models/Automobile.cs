@@ -15,10 +15,10 @@ namespace FactoryPattern.Models
             Doors = doors;
             TopSpeed = topSpeed;
         }
-        protected string Make { get; set; }
-        protected string Model { get; set; }
-        protected int Doors { get; set; }
-        protected int TopSpeed { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Doors { get; set; }
+        public int TopSpeed { get; set; }
         public string Color { get; set; }
         public abstract void Drive();
     }

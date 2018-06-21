@@ -1,3 +1,4 @@
+using FactoryPattern.Interfaces;
 using FactoryPattern.Models;
 using System;
 using System.Collections.Generic;
@@ -11,31 +12,23 @@ namespace FactoryPattern.Factories
     {
         public enum CarType
         {
-            ToyotaCamry = 0,
-            DodgeViper = 1,
-            HarleyDavidsonSuperLow = 2
+            DailyDriver = 0,
+            SportsCar = 1,
+            Motorcycle = 2
         }
 
-        public static Automobile GetAutomobileOfColor<T>(string color) where T: Automobile, new()
+        public static IAutomobile GetAutomobileOfColor(CarType type, string color)
         {
-            var auto = new T();
-            auto.Color = color;
-
-            return auto;
-        }
-
-        public static Automobile GetAutomobileOfColor(CarType type, string color)
-        {
-            Automobile auto;
+            IAutomobile auto;
             switch (type)
             {
-                case CarType.ToyotaCamry:
+                case CarType.DailyDriver:
                     auto = new ToyotaCamry();
                     break;
-                case CarType.DodgeViper:
+                case CarType.SportsCar:
                     auto = new DodgeViper();
                     break;
-                case CarType.HarleyDavidsonSuperLow:
+                case CarType.Motorcycle:
                     auto = new HarleyDavidsonSuperLow();
                     break;
                 default:
@@ -47,9 +40,9 @@ namespace FactoryPattern.Factories
             return auto;
         }
 
-        public static Automobile GetRandomAutomobileOfColor(string color)
+        public static IAutomobile GetRandomAutomobileOfColor(string color)
         {
-            var carTypes = new[] { CarType.DodgeViper, CarType.HarleyDavidsonSuperLow, CarType.ToyotaCamry };
+            var carTypes = new[] { CarType.SportsCar, CarType.Motorcycle, CarType.DailyDriver };
             var randomIndex = new Random(DateTime.Now.Millisecond).Next(0, carTypes.Length - 1);
             var randomCarType = carTypes[randomIndex];
             return GetAutomobileOfColor(randomCarType, color);

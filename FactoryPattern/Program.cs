@@ -14,26 +14,17 @@ namespace FactoryPattern
         {
             var color = "Red";
 
-            var camry = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.ToyotaCamry, color);
-            camry.Drive();
+            var dailyDriver = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.DailyDriver, color);
+            dailyDriver.Drive();
 
-            var viper = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.DodgeViper, color);
-            viper.Drive();
+            var sportsCar = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.SportsCar, color);
+            sportsCar.Drive();
 
-            var superLow = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.HarleyDavidsonSuperLow, color);
-            superLow.Drive();
+            var motorcycle = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.Motorcycle, color);
+            motorcycle.Drive();
 
             var randomAuto = AutomobileFactory.GetRandomAutomobileOfColor(color);
             randomAuto.Drive();
-
-            camry = AutomobileFactory.GetAutomobileOfColor<ToyotaCamry>(color);
-            camry.Drive();
-
-            viper = AutomobileFactory.GetAutomobileOfColor<DodgeViper>(color);
-            viper.Drive();
-
-            superLow = AutomobileFactory.GetAutomobileOfColor<HarleyDavidsonSuperLow>(color);
-            superLow.Drive();
         }
     }
 }
