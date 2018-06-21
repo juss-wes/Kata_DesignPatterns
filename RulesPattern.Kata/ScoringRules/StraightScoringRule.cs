@@ -6,30 +6,29 @@ using System.Threading.Tasks;
 
 namespace RulesPattern.Kata.ScoringRules
 {
-    public class SingleScoringRule : IGreedScoringRule
+    public class StraightScoringRule : IGreedScoringRule
     {
-        public int TestDieRollValue { get; }
         public int RuleScore { get; }
 
-        public SingleScoringRule(int testDieRollValue, int score)
+        public StraightScoringRule(int score)
         {
-            if (testDieRollValue <= 0 || testDieRollValue > 6)
-                throw new ArgumentOutOfRangeException(nameof(testDieRollValue), $"A die value of {testDieRollValue} is invalid");
             if (score < 0)
                 throw new ArgumentOutOfRangeException(nameof(score), "Score values cannot be negative");
 
-            TestDieRollValue = testDieRollValue;
             RuleScore = score;
         }
 
         public int ScoreDice(IEnumerable<DiceRoll> UnevaluatedDiceRolls)
         {
             var score = 0;
-            foreach (var dice in UnevaluatedDiceRolls.Where(dice => dice.NumberRolled == TestDieRollValue))
-            { 
-                dice.Evaluated = true;
+
+            if (UnevaluatedDiceRolls.Count() == 6 && UnevaluatedDiceRolls.GroupBy(dice => dice.NumberRolled).All(diceWithSameNumberRoll => diceWithSameNumberRoll.Count() == 1))
+            {
                 score += RuleScore;
+                foreach (var dice in UnevaluatedDiceRolls)
+                    dice.Evaluated = true;
             }
+
             return score;
         }
     }
