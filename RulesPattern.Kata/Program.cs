@@ -17,6 +17,8 @@ namespace RulesPattern.Kata
                 ScoreCalculator.ScoreRolls(diceRolls);
                 Console.WriteLine("Press Y to play again, anything else to quit");
                 exit = Console.ReadKey().KeyChar == 'Y';
+                if (!exit)
+                    Console.WriteLine();
             }
         }
 
@@ -29,6 +31,7 @@ namespace RulesPattern.Kata
             {
                 if(!int.TryParse(Console.ReadLine(), out rollCount) || !(rollCount > 0 && rollCount < 7))
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Please enter a number (1-6)");
                 }
                 else
