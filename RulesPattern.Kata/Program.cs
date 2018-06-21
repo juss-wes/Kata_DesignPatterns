@@ -16,9 +16,7 @@ namespace RulesPattern.Kata
                 var diceRolls = RollDice();
                 ScoreCalculator.ScoreRolls(diceRolls);
                 Console.WriteLine("Press Y to play again, anything else to quit");
-                exit = Console.ReadKey().KeyChar == 'Y';
-                if (!exit)
-                    Console.WriteLine();
+                exit = Console.ReadLine().ToUpper() != "Y";
             }
         }
 
