@@ -22,9 +22,6 @@ namespace FactoryPattern
 
             var motorcycle = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.Motorcycle, color);
             motorcycle.Drive();
-
-            var randomAuto = AutomobileFactory.GetRandomAutomobileOfColor(color);
-            randomAuto.Drive();
         }
     }
 }

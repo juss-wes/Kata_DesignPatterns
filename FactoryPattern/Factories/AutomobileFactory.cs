@@ -39,13 +39,5 @@ namespace FactoryPattern.Factories
 
             return auto;
         }
-
-        public static IAutomobile GetRandomAutomobileOfColor(string color)
-        {
-            var carTypes = new[] { CarType.SportsCar, CarType.Motorcycle, CarType.DailyDriver };
-            var randomIndex = new Random(DateTime.Now.Millisecond).Next(0, carTypes.Length - 1);
-            var randomCarType = carTypes[randomIndex];
-            return GetAutomobileOfColor(randomCarType, color);
-        }
     }
 }
