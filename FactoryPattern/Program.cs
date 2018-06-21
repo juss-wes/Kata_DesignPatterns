@@ -22,6 +22,8 @@ namespace FactoryPattern
 
             var motorcycle = AutomobileFactory.GetAutomobileOfColor(AutomobileFactory.CarType.Motorcycle, color);
             motorcycle.Drive();
+
+            Console.ReadKey();
         }
     }
 }
