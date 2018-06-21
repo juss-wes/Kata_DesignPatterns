@@ -14,6 +14,11 @@ namespace RepositoryPattern
     {
         static void Main(string[] args)
         {
+            DoWork();
+        }
+
+        private static void DoWork()
+        {
             var transactions = GetTransactionsFromFile();
             Console.WriteLine($"Found {transactions.Count()} transactions.");
 
