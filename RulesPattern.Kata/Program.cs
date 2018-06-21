@@ -1,3 +1,4 @@
+using RulesPattern.Kata.ScoringRules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,18 @@ namespace RulesPattern.Kata
         static void Main(string[] args)
         {
             var exit = false;
+            var scoreEngine = new ScoreEngine(new List<IGreedScoringRule>()
+            {
+                //TODO: Add more rules here
+                new SingleScoringRule(1, 100, 1),
+                new SingleScoringRule(5, 50, 2)
+            });
             while (!exit)
             {
                 var diceRolls = RollDice();
-                ScoreCalculator.ScoreRolls(diceRolls);
+                scoreEngine.ScoreDiceRolls(diceRolls);
                 Console.WriteLine("Press Y to play again, anything else to quit");
-                exit = Console.ReadKey().KeyChar == 'Y';
-                if (!exit)
-                    Console.WriteLine();
+                exit = Console.ReadLine().ToUpper() != "Y";
             }
         }
 
