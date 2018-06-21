@@ -46,11 +46,9 @@
     <Compile Include="IGreedScoringRule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreCalculator.cs" />
     <Compile Include="ScoreEngine.cs" />
-    <Compile Include="ScoringRules\OfAKindScoringRule.cs" />
     <Compile Include="ScoringRules\SingleScoringRule.cs" />
-    <Compile Include="ScoringRules\StraightScoringRule.cs" />
-    <Compile Include="ScoringRules\ThreePairsScoringRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

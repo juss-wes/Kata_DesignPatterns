@@ -8,27 +8,24 @@ namespace RulesPattern.Kata.ScoringRules
 {
     public class SingleScoringRule : IGreedScoringRule
     {
-        public int TestDieRollValue { get; }
-        public int RuleScore { get; }
+        private readonly int _diceNumberToScore;
+        private readonly int _pointValue;
+        public int EvaluationOrder { get; private set; }
 
-        public SingleScoringRule(int testDieRollValue, int score)
+        public SingleScoringRule(int diceNumberToScore, int pointValue, int evaluationOrder)
         {
-            if (testDieRollValue <= 0 || testDieRollValue > 6)
-                throw new ArgumentOutOfRangeException(nameof(testDieRollValue), $"A die value of {testDieRollValue} is invalid");
-            if (score < 0)
-                throw new ArgumentOutOfRangeException(nameof(score), "Score values cannot be negative");
-
-            TestDieRollValue = testDieRollValue;
-            RuleScore = score;
+            _diceNumberToScore = diceNumberToScore;
+            _pointValue = pointValue;
+            EvaluationOrder = evaluationOrder;
         }
 
         public int ScoreDice(IEnumerable<DiceRoll> UnevaluatedDiceRolls)
         {
             var score = 0;
-            foreach (var dice in UnevaluatedDiceRolls.Where(dice => dice.NumberRolled == TestDieRollValue))
+            foreach (var dice in UnevaluatedDiceRolls.Where(dice => dice.NumberRolled == _diceNumberToScore))
             { 
                 dice.Evaluated = true;
-                score += RuleScore;
+                score += _pointValue;
             }
             return score;
         }

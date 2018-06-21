@@ -18,8 +18,7 @@ namespace RulesPattern.Kata
         public int ScoreDiceRolls(IEnumerable<DiceRoll> diceRolls)
         {
             var score = 0;
-            //run rules in order of most points ---> least points
-            foreach (var rule in _scoringRules.OrderByDescending(rule => rule.RuleScore))
+            foreach (var rule in _scoringRules.OrderBy(rule => rule.EvaluationOrder))
             {
                 score += rule.ScoreDice(diceRolls.Where(x => x.Evaluated == false));
             }
