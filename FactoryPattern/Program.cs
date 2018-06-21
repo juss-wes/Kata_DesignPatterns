@@ -24,6 +24,8 @@ namespace FactoryPattern
             var motorcycle = new HarleyDavidsonSuperLow();
             motorcycle.Color = color;
             motorcycle.Drive();
+
+            Console.ReadKey();
         }
     }
 }
