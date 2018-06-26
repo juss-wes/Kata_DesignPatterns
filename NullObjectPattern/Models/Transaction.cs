@@ -4,6 +4,8 @@ namespace NullObjectPattern.Models
 {
     public class Transaction
     {
+        public static NullTransaction Null() => new NullTransaction();
+
         public int ID { get; set; } = 0;
         public string Name { get; set; } = string.Empty;
         public double Cost { get; set; } = 0.00d;

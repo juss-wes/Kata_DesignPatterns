@@ -20,15 +20,8 @@ namespace NullObjectPattern
                 {
                     var transaction = GetTransaction(transactionId);
 
-                    if (transaction != null)
-                    {
-                        // Process the requested transaction
-                        transaction.ProcessTransaction();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Null transaction!");
-                    }
+                    // Process the requested transaction
+                    transaction.ProcessTransaction();
 
                     Console.WriteLine();
                     Console.WriteLine("Press 'Enter' to submit another transaction.");
@@ -55,7 +48,7 @@ namespace NullObjectPattern
                 new Transaction(6, "Loch Ness Monster", 3.50, DateTime.Now)
             };
 
-            return transactions.SingleOrDefault(_ => _.ID == id);
+            return transactions.SingleOrDefault(_ => _.ID == id) ?? Transaction.Null();
         }
     }
 }
