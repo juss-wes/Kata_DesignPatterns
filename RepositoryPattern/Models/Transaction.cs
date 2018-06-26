@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryPattern.Models
 {
-    class Transaction
+    public class Transaction
     {
         public string RecordId { get; set; }
         public string Location { get; set; }

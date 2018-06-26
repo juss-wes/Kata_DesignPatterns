@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\TransactionRepositoryFactory.cs" />
     <Compile Include="Interfaces\ITransactionRepository.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Program.cs" />

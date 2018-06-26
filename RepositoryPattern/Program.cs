@@ -10,6 +10,7 @@ using System.Data;
 using System.ComponentModel;
 using RepositoryPattern.Interfaces;
 using RepositoryPattern.Repositories;
+using RepositoryPattern.Factories;
 
 namespace RepositoryPattern
 {
@@ -17,8 +18,8 @@ namespace RepositoryPattern
     {
         static void Main(string[] args)
         {
-            DoWork(new TransactionsFromFileRepository());
-            DoWork(new TransactionsFromDatabaseRepository());
+            DoWork(TransactionRepositoryFactory.GetRepository(TransactionRepositoryFactory.RepositorySource.FlatFile));
+            DoWork(TransactionRepositoryFactory.GetRepository(TransactionRepositoryFactory.RepositorySource.Database));
         }
 
         private static void DoWork(ITransactionRepository repository)

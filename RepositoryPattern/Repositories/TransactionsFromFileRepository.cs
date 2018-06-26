@@ -10,14 +10,14 @@ namespace RepositoryPattern.Repositories
 {
     class TransactionsFromFileRepository : ITransactionRepository
     {
-        private const string FILE_SOURCE_PATH = @"c:\temp\transaction-data.txt";
-        private const char FILE_DELIMITER = '~';
+        private const string _fileSourcePath = @"c:\temp\transaction-data.txt";
+        private const char _fileDelimiter = '~';
         public Transaction Get(string recordId) => GetAll().FirstOrDefault(x => x.RecordId == recordId);
 
         public IEnumerable<Transaction> GetAll()
         {
-            var fileLines = System.IO.File.ReadAllLines(FILE_SOURCE_PATH);
-            var transactions = fileLines.Select(line => line.Split(FILE_DELIMITER))
+            var fileLines = System.IO.File.ReadAllLines(_fileSourcePath);
+            var transactions = fileLines.Select(line => line.Split(_fileDelimiter))
                                         .Select(values => new Transaction
                                         {
                                             RecordId = values[0],

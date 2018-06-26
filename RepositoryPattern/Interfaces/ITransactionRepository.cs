@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryPattern.Interfaces
 {
-    interface ITransactionRepository
+    public interface ITransactionRepository
     {
         IEnumerable<Transaction> GetAll();
         Transaction Get(string recordId);

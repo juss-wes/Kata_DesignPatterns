@@ -12,7 +12,7 @@ namespace RepositoryPattern.Repositories
 {
     class TransactionsFromDatabaseRepository : ITransactionRepository
     {
-        private const string CONNECTION_STRING = "my database connection";
+        private const string _connectionString = "my database connection";
         public Transaction Get(string recordId)
         {
             var transaction = ExecuteQuery($"select * from MainframeTransactions where RecordId = '{recordId}'").FirstOrDefault();
@@ -30,7 +30,7 @@ namespace RepositoryPattern.Repositories
         private static IEnumerable<Transaction> ExecuteQuery(string query)
         {
             DataTable results = null;
-            using (var conn = new SqlConnection(CONNECTION_STRING))
+            using (var conn = new SqlConnection(_connectionString))
             {
                 using (var cmd = new SqlCommand(query, conn))
                 {
