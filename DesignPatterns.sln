@@ -11,11 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Rules Pattern.docx = Rules Pattern.docx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryPattern", "FactoryPattern\FactoryPattern.csproj", "{587F515A-5383-423F-AC47-EC57069119D6}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesPattern.Kata", "RulesPattern.Kata\RulesPattern.Kata.csproj", "{9E00C03A-DB69-4750-8CF3-C939C72D9EEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullObjectPattern", "NullObjectPattern\NullObjectPattern.csproj", "{257A9251-2182-4CBD-B684-12CF60638A70}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{587F515A-5383-423F-AC47-EC57069119D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587F515A-5383-423F-AC47-EC57069119D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587F515A-5383-423F-AC47-EC57069119D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{587F515A-5383-423F-AC47-EC57069119D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
